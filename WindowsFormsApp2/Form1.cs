@@ -54,7 +54,15 @@ namespace WindowsFormsApp2
             char[] delimiters = new char[] { ' ', '\r', '\n' };
             int wordCount = textBox1.Text.Split(delimiters, StringSplitOptions.RemoveEmptyEntries).Length
                 , symbolCount = textBox1.Text.Length;
-            toolStripStatusLabel1.Text = $"Words: {wordCount}; Symbols: {symbolCount};";
+            toolStripStatusLabel1.Text = String.Empty;
+            if (wordsCountToolStripMenuItem.Checked)
+            {
+                toolStripStatusLabel1.Text += $"Words: {wordCount}; ";
+            }
+            if (symbolsCountToolStripMenuItem.Checked)
+            {
+                toolStripStatusLabel1.Text += $"Symbols: {symbolCount}; ";
+            }
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -85,6 +93,30 @@ namespace WindowsFormsApp2
                 StreamWriter sw = new StreamWriter(saveFileDialog.FileName);
                 sw.Write(textBox1.Text);
                 sw.Close();
+            }
+        }
+
+        private void symbolsCountToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (symbolsCountToolStripMenuItem.Checked)
+            {
+                symbolsCountToolStripMenuItem.Checked = false;
+            }
+            else
+            {
+                symbolsCountToolStripMenuItem.Checked = true;
+            }
+        }
+
+        private void wordsCountToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (wordsCountToolStripMenuItem.Checked)
+            {
+                wordsCountToolStripMenuItem.Checked = false;
+            }
+            else
+            {
+                wordsCountToolStripMenuItem.Checked = true;
             }
         }
     }
