@@ -71,10 +71,12 @@ namespace WindowsFormsApp2
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = $"{GetLocal(localGlobal + "_textFiles")} (*.txt)|*.txt";
-            saveFileDialog.DefaultExt = "txt";
-            saveFileDialog.AddExtension = true;
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                Filter = $"{GetLocal(localGlobal + "_textFiles")} (*.txt)|*.txt",
+                DefaultExt = "txt",
+                AddExtension = true
+            };
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 StreamWriter sw = new StreamWriter(saveFileDialog.FileName);
@@ -106,8 +108,10 @@ namespace WindowsFormsApp2
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = $"{GetLocal(localGlobal + "_allFiles")}(*.*)|*.*| {GetLocal(localGlobal + "_textFiles")} (*.txt)|*.txt";
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = $"{GetLocal(localGlobal + "_allFiles")}(*.*)|*.*| {GetLocal(localGlobal + "_textFiles")} (*.txt)|*.txt"
+            };
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 StreamReader sr = new StreamReader(openFileDialog.FileName);
@@ -118,10 +122,12 @@ namespace WindowsFormsApp2
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = $"{GetLocal(localGlobal + "_textFiles")} (*.txt)|*.txt";
-            saveFileDialog.DefaultExt = "txt";
-            saveFileDialog.AddExtension = true;
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                Filter = $"{GetLocal(localGlobal + "_textFiles")} (*.txt)|*.txt",
+                DefaultExt = "txt",
+                AddExtension = true
+            };
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 StreamWriter sw = new StreamWriter(saveFileDialog.FileName);
@@ -187,8 +193,10 @@ namespace WindowsFormsApp2
 
         private void OpenButton_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = $"{GetLocal(localGlobal + "_allFiles")}: (*.*)|*.*| {GetLocal(localGlobal + "_textFiles")} (*.txt)|*.txt";
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = $"{GetLocal(localGlobal + "_allFiles")}: (*.*)|*.*| {GetLocal(localGlobal + "_textFiles")} (*.txt)|*.txt"
+            };
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 StreamReader sr = new StreamReader(openFileDialog.FileName);
