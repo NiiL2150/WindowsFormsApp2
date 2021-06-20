@@ -48,5 +48,44 @@ namespace WindowsFormsApp2
                 sr.Close();
             }
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            char[] delimiters = new char[] { ' ', '\r', '\n' };
+            int wordCount = textBox1.Text.Split(delimiters, StringSplitOptions.RemoveEmptyEntries).Length
+                , symbolCount = textBox1.Text.Length;
+            toolStripStatusLabel1.Text = $"Words: {wordCount}; Symbols: {symbolCount};";
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = String.Empty;
+        }
+
+        private void openToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "All files(*.*)|*.*| Text files (*.txt)|*.txt";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                StreamReader sr = new StreamReader(openFileDialog.FileName);
+                textBox1.Text = sr.ReadToEnd();
+                sr.Close();
+            }
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Text files (*.txt)|*.txt";
+            saveFileDialog.DefaultExt = "txt";
+            saveFileDialog.AddExtension = true;
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                StreamWriter sw = new StreamWriter(saveFileDialog.FileName);
+                sw.Write(textBox1.Text);
+                sw.Close();
+            }
+        }
     }
 }
