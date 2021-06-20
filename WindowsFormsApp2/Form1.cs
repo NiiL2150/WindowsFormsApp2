@@ -98,25 +98,51 @@ namespace WindowsFormsApp2
 
         private void symbolsCountToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            char[] delimiters = new char[] { ' ', '\r', '\n' };
+            int wordCount = textBox1.Text.Split(delimiters, StringSplitOptions.RemoveEmptyEntries).Length
+                , symbolCount = textBox1.Text.Length;
+            toolStripStatusLabel1.Text = String.Empty;
             if (symbolsCountToolStripMenuItem.Checked)
             {
                 symbolsCountToolStripMenuItem.Checked = false;
+                if (wordsCountToolStripMenuItem.Checked)
+                {
+                    toolStripStatusLabel1.Text += $"Words: {wordCount}; ";
+                }
             }
             else
             {
                 symbolsCountToolStripMenuItem.Checked = true;
+                if (wordsCountToolStripMenuItem.Checked)
+                {
+                    toolStripStatusLabel1.Text += $"Words: {wordCount}; ";
+                }
+                toolStripStatusLabel1.Text += $"Symbols: {symbolCount}; ";
             }
         }
 
         private void wordsCountToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            char[] delimiters = new char[] { ' ', '\r', '\n' };
+            int wordCount = textBox1.Text.Split(delimiters, StringSplitOptions.RemoveEmptyEntries).Length
+                , symbolCount = textBox1.Text.Length;
+            toolStripStatusLabel1.Text = String.Empty;
             if (wordsCountToolStripMenuItem.Checked)
             {
                 wordsCountToolStripMenuItem.Checked = false;
+                if (symbolsCountToolStripMenuItem.Checked)
+                {
+                    toolStripStatusLabel1.Text += $"Symbols: {symbolCount}; ";
+                }
             }
             else
             {
+                toolStripStatusLabel1.Text += $"Words: {wordCount}; ";
                 wordsCountToolStripMenuItem.Checked = true;
+                if (symbolsCountToolStripMenuItem.Checked)
+                {
+                    toolStripStatusLabel1.Text += $"Symbols: {symbolCount}; ";
+                }
             }
         }
     }

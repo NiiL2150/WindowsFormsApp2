@@ -140,8 +140,8 @@ namespace WindowsFormsApp2
             // infoToolStripMenuItem
             // 
             this.infoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.symbolsCountToolStripMenuItem,
-            this.wordsCountToolStripMenuItem});
+            this.wordsCountToolStripMenuItem,
+            this.symbolsCountToolStripMenuItem});
             this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
             this.infoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
             this.infoToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
